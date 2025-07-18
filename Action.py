@@ -1,9 +1,11 @@
+from typing import Callable, Dict, Any
+
 class Action:
-    def __init__(self, 
+    def __init__(self,
                  name: str,
-                 function: callable,
+                 function: Callable,
                  description: str,
-                 parameters: dict,
+                 parameters: Dict,
                  terminal: bool = False):
         self.name = name
         self.function = function
@@ -11,6 +13,6 @@ class Action:
         self.terminal = terminal
         self.parameters = parameters
 
-    def execute(self, **args) -> any:
+    def execute(self, **args) -> Any:
         """Execute the action's function"""
         return self.function(**args)
